@@ -31,16 +31,29 @@ function mh_insert_row(evt) {
 
     // check if our color info is present
     if(message.flags && message.flags.plugin_mh_color) {
-        var row = $(evt.row.obj);
+        var row = $(evt.row.obj); // jQuery object for the row
+        var rowElement = evt.row.obj; // The raw DOM element for the row
+
+        // Add base class - keep this in case CSS has other relevant styles
         row.addClass('rcmfd_mh_row');
 
-        evt.row.obj.style.backgroundColor = message.flags.plugin_mh_color;
+        // --- MODIFICATION START ---
+        // Remove the background color setting:
+        // rowElement.style.backgroundColor = message.flags.plugin_mh_color;
 
+        // Add the bottom border style instead:
+        // Adjust '3px solid' for thickness and style (e.g., '2px dashed') as needed.
+        rowElement.style.borderBottom = '3px solid ' + message.flags.plugin_mh_color;
+        // --- MODIFICATION END ---
+
+        // This part checked brightness potentially for text contrast on dark backgrounds.
+        // Keep the logic for now, but ensure the CSS for '.rcmfd_mh_row_dark'
+        // doesn't conflict (e.g., by setting a background). You might remove
+        // this block later if the dark class isn't needed or causes issues.
         var color_brightness = brightness(message.flags.plugin_mh_color);
         if (color_brightness !== null && color_brightness < 123) {
             row.addClass('rcmfd_mh_row_dark');
         }
-
     }
 }
 
@@ -92,4 +105,3 @@ function brightness(hex) {
 
     return (rgb[0] * 299 + rgb[1] * 587 + rgb[2] * 114) / 1000
 }
-
