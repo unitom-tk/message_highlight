@@ -49,7 +49,7 @@ class message_highlight extends rcube_plugin
    */
   function storage_init($p)
   {
-    $p['fetch_headers'] .= trim($p['fetch_headers']. ' ' . 'CC');
+    $p['fetch_headers'] = trim(($p['fetch_headers'] ?? '') . ' ' . 'CC');
     return($p);
   }
 
@@ -114,7 +114,7 @@ class message_highlight extends rcube_plugin
       // no rows yet, add 1 empty row
       if($i == 1) {
         $args['blocks']['mh_preferences']['options'][$i] = array(
-          'content' => 	$this->mh_get_form_row()
+          'content' =>  $this->mh_get_form_row()
           );
       }
     }
