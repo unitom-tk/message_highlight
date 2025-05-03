@@ -1,11 +1,14 @@
 /* mail list */
 .rcmfd_mh_row td {
+    /* This prevents individual cells having a background, which is good */
     background-color: transparent !important;
-    color: #fff !important;
+    /* REMOVED: color: #fff !important; - Allow theme default text color */
 }
 
 .rcmfd_mh_row_dark td * {
-    color: #fff !important;
+    /* REMOVED: color: #fff !important; - Allow theme default text color */
+    /* This class might be redundant now, but leaving the selector */
+    /* in case you want to add other styles later */
 }
 
 /* preferences */
@@ -21,7 +24,7 @@
 
 /* pencil icon for settings item */
 .listing.iconized tr.mh_preferences>td.section:before {
-    content: "\f303";
+    content: "\f303"; /* Ensure your environment supports FontAwesome or similar for this icon */
 }
 
 /* remove some colorpicker elements */
@@ -32,7 +35,6 @@
 #mColorPickerFooter {
     background-color: #ffffff !important;
 }
-
 
 #mColorPicker {
     height: 83px !important;
