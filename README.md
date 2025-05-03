@@ -1,7 +1,7 @@
 message_highlight
 =================
 
-With this plugin you can colorize the message index rows based on specific criteria like sender, recipient and subject.
+With this plugin you can colorize the message index vertical bars based on specific criteria like sender, recipient and subject.
 
 FEATURES
 --------
@@ -12,7 +12,7 @@ CONTACT
 -------
 Author:   Cor Bosman (cor@roundcu.be)
 
-Bug reports through github (https://github.com/corbosman/message_highlight/issues)
+###Bug reports through github (https://github.com/corbosman/message_highlight/issues)
 
 LICENSE
 -------
